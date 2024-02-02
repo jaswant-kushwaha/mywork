@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, Image, ScrollView, Pressable, ImageBackground } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity, ImageBackground } from 'react-native';
 import { useData } from '../../dataHooks/hooks';
 
 export default function Login({ navigation }) {
-    const { isLoading, setNav } = useData()
+    const { isLoading } = useData()
     return (
         <>
             <View style={styles.loginWrapper}>
@@ -24,6 +24,7 @@ export default function Login({ navigation }) {
                             Click blow to get started
                         </Text>
                     </View>
+                    <TouchableOpacity  onPress={() => {navigation.navigate('Chat') }}>
                     <View style={styles.googlLogin}>
                         <Image
                             style={styles.googleImage}
@@ -33,6 +34,7 @@ export default function Login({ navigation }) {
                             Continue with Google
                         </Text>
                     </View>
+                    </TouchableOpacity>
                 </View>
             </View>
         </>
@@ -73,7 +75,7 @@ const styles = StyleSheet.create({
     logoText: {
         
         color: "#0D1525",
-        fontStyle: "Helvetica",
+        fontFamily: "Helvetica",
         fontSize:20,
         fontWeight:"700",
 
@@ -88,14 +90,14 @@ const styles = StyleSheet.create({
     },
     welecomeText:{
         color: "#CDCDCD",
-        fontStyle: "Helvetica",
+        fontFamily: "Helvetica",
         fontSize:22,
         fontWeight:"700",
     },
     cliclBlowText:{
 
         color: "#999999",
-        fontStyle: "Helvetica",
+        fontFamily: "Helvetica",
         fontSize:16,
         fontWeight:"500",
         
